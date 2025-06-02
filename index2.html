@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warsi Meat Bazaar - Premium Meat Shop Franchise</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+     <link rel="icon" href="./images/warsi meat logo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #dc2626;
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .sticky-nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 50;
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+
+<body class="">
+    <!-- Navbar -->
+    <nav id="navbar" class="bg-gray-950 shadow-lg sticky-nav">
+        <div class="container md:w-[90%] w-full mx-auto px-6 py-1">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <img src="./images/warsi meat logo.png" class="h-20" alt="">
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home"
+                        class="nav-link font-bold   text-red-600 transition-colors duration-300">Home</a>
+                    <a href="#about"
+                        class="nav-link  text-red-600 font-bold  transition-colors duration-300">About</a>
+                    <a href="#menu"
+                        class="nav-link  text-red-600 font-bold  transition-colors duration-300">Menu</a>
+                    <a href="#franchise"
+                        class="nav-link  text-red-600 font-bold  transition-colors duration-300">Franchise</a>
+                    <a href="#contact"
+                        class="nav-link  text-red-600 font-bold  transition-colors duration-300">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-red-600 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden mt-4 pb-2">
+                <div class="flex flex-col space-y-4 text-center justify-center">
+                    <a href="#"
+                        class=" text-red-600 font-fold transition-colors duration-300">Home</a>
+                    <a href="#about"
+                        class=" text-red-600 font-fold transition-colors duration-300">About</a>
+                    <a href="#menu"
+                        class=" text-red-600 font-fold transition-colors duration-300">Menu</a>
+                    <a href="#franchise"
+                        class=" text-red-600 font-fold transition-colors duration-300">Franchise</a>
+                    <a href="#contact"
+                        class=" text-red-600 font-fold transition-colors duration-300">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- main section -->
+    <div id="home"
+        class="h-screen bg-[url('./images/banner.jpg')] bg-no-repeat relative bg-cover bg-fixed  flex justify-center items-center">
+        <!-- Background Overlay -->
+        <div class="overlay absolute inset-0 bg-black opacity-70"></div>
+
+        <!-- Content Container -->
+        <div class="relative z-10 container mx-auto px-4 py-16">
+            <div class="max-w-4xl mx-auto text-center">
+                <!-- Main Heading -->
+                <h1 x-data="{
+    startingAnimation: { opacity: 0, scale: 4 },
+    endingAnimation: { opacity: 1, scale: 1, stagger: 0.07, duration: 1, ease: 'expo.out' },
+    addCNDScript: true,
+    animateText() {
+        $el.classList.remove('invisible');
+        gsap.fromTo($el.children, this.startingAnimation, this.endingAnimation);
+    },
+    splitCharactersIntoSpans(element) {
+        text = element.innerHTML;
+        modifiedHTML = [];
+        for (var i = 0; i < text.length; i++) {
+            attributes = '';
+            if(text[i].trim()){ attributes = 'class=\'inline-block\''; }
+            modifiedHTML.push('<span ' + attributes + '>' + text[i] + '</span>');
+        }
+        element.innerHTML = modifiedHTML.join('');
+    },
+    addScriptToHead(url) {
+        script = document.createElement('script');
+        script.src = url;
+        document.head.appendChild(script);
+    }
+}" x-init="
+    splitCharactersIntoSpans($el);
+    if(addCNDScript){
+        addScriptToHead('https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js');
+    }
+    gsapInterval = setInterval(function(){
+        if(typeof gsap !== 'undefined'){
+            animateText();
+            clearInterval(gsapInterval);
+        }
+    }, 5);
+" class="invisible block text-3xl md:text-6xl  font-bold custom-font text-white leading-tight">
+              Welcome to Warsi Meat Bazaar
+                </h1>
+                <p class="text-white text-sm font-semibold mb-12 md:w-[70%] w-full mx-auto mt-7"> Premium, locally-sourced meats with exceptional quality and service. Visit us or shop online for an
+                    unmatched experience.
+                <div class="border-b-2 border-green-600 w-1/2 mx-auto mt-4"></div>
+                </p>
+            </div>
+        </div>
+    </div>
+
+     <!-- Quality Badge -->
+     <div class="w-full bg-gray-100 py-10 border-t border-b border-gray-200">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="flex flex-wrap justify-center gap-8 md:gap-16">
+
+                <div class="flex items-center" data-aos="zoom-in-up"  data-aos-duration="1000">
+                    <div class="mr-3 text-[#e22626]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="md:h-14 md:w-14 h-10 w-10" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold md:text-2xl text-base">Premium Quality</h3>
+                        <p class="text-xs md:text-sm text-gray-600">100% Quality Assured</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center" data-aos="zoom-in-up"  data-aos-duration="1500">
+                    <div class="mr-3 text-[#e22626]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="md:h-14 md:w-14 h-10 w-10" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold md:text-2xl text-base">Locally Sourced</h3>
+                        <p class="text-xs md:text-sm text-gray-600">From Local Farms</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center" data-aos="zoom-in-up"  data-aos-duration="2000">
+                    <div class="mr-3 text-[#e22626]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="md:h-14 md:w-14 h-10 w-10" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold md:text-2xl text-base">Fast Delivery</h3>
+                        <p class="text-xs md:text-sm text-gray-600">Same Day Delivery</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center" data-aos="zoom-in-up"  data-aos-duration="2500">
+                    <div class="mr-3 text-[#e22626]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="md:h-14 md:w-14 h-10 w-10" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold md:text-2xl text-base">Customer Satisfaction</h3>
+                        <p class="text-xs md:text-sm text-gray-600">100% Guaranteed</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="about" class=" py-20 md:pt-32 mt-5 md:w-[90%] w-full mx-auto ">
+        <div class="container mx-auto px-6 flex flex-col-reverse md:flex-row items-center gap-6">
+            <!-- Left Content -->
+            <div class="w-full md:w-1/2 text-center md:text-left" data-aos="zoom-in-up"  data-aos-duration="1000">
+                <h2 class="text-2xl md:text-5xl font-bold text-gray-800 leading-tight">
+                    What Makes Us<span class="text-red-600"> Different</span>
+                </h2>
+                <p class="text-gray-800  my-6 text-sm text-justify">
+                    At Warsi Meat Bazaar, we believe that our success is due to our
+                    commitment to quality, service, and innovation. We work closely
+                    with farmer to ensure that our meats are always fresh, flavorful,
+                    and of the highest quality. We also strive to provide our customers
+                    with a wide range of meat products, from traditional cuts of
+                    chicken, fish, and lamb, seafoad to more unique items like Turkey,
+                    quail, khadaknath and exotic meats.
+                    As a Warsi Meat Bazaar franchisee, you’ll benefit from our proven
+                    business model and extensive support network. We’ll provide you
+                    with everything you need to get your franchise up and running.
+                    We’re committed to helping our franchisees succeed and grow their
+                    businesses. Our experienced team will work closely with you to
+                    develop a customized business plan that meets your unique needs
+                    and goals. and with our strong brand reputation and loyal
+                    customer base, you’ll have a competitive advantage in your local
+                    market.
+                </p>
+                <a href="#contact"
+                    class="bg-red-600 text-white py-3 px-8 rounded-full text-lg shadow-lg hover:bg-red-500 transition duration-300 inline-flex items-center">
+                    <span>Contact Us</span>
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+            <!-- Right Image -->
+            <div class="w-full md:w-1/2 md:mb-0" data-aos="zoom-in-up"  data-aos-duration="1500">
+                <img src="./images/nonveg2.avif"
+                    alt="Warsi Meat Bazaar"
+                    class="rounded-lg shadow-2xl hover:scale-105 transition-transform duration-300">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class=" md:w-[90%] w-full mx-auto">
+        <div class="container mx-auto px-6 text-center">
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Quality -->
+                <div class="p-6 rounded-lg shadow-md hover:shadow-xl border-2 border-red-600 bg-red-50" data-aos="zoom-in-up"  data-aos-duration="1000">
+                    <div class="flex justify-center items-center mb-4">
+                        <span class="inline-block h-16 w-16 rounded-full bg-red-100 text-red-600">
+                            <i class="fas fa-award text-4xl mt-2"></i>
+                        </span>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4 text-red-600">Quality</h3>
+                    <p class="text-gray-600 leading-relaxed text-justify text-sm">We're dedicated to providing our
+                        customers with the freshest, most
+                        f lavorful meats available. That's why we work closely with local
+                        farm to source the best possible meats, and why we never
+                        compromise on quality.</p>
+                </div>
+                <!-- Service -->
+                <div
+                    class="p-6 rounded-lg shadow-md hover:shadow-xl border-2 border-red-600 bg-red-50" data-aos="zoom-in-up"  data-aos-duration="1500">
+                    <div class="flex justify-center items-center mb-4">
+                        <span class="inline-block h-16 w-16 rounded-full bg-red-100 text-red-600">
+                            <i class="fas fa-hands-helping text-4xl mt-2"></i>
+                        </span>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4 text-red-600">Service</h3>
+                    <p class="text-gray-600 leading-relaxed text-justify text-sm">We believe that exceptional customer
+                        service is key to building
+                        long-term relationships with our customers. That's why we go
+                        above and beyond to make sure that every customer who visits our
+                        store feels welcomed, appreciated, and taken care of.</p>
+                </div>
+                <!-- Innovation -->
+                <div
+                    class="p-6 rounded-lg shadow-md hover:shadow-xl border-2 border-red-600 bg-red-50" data-aos="zoom-in-up"  data-aos-duration="2000">
+                    <div class="flex justify-center items-center mb-4">
+                        <span class="inline-block h-16 w-16 rounded-full bg-red-100 text-red-600">
+                            <i class="fas fa-lightbulb text-4xl mt-2"></i>
+                        </span>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4 text-red-600">Innovation</h3>
+                    <p class="text-gray-600 leading-relaxed text-justify text-sm">We're always looking for new and
+                        better ways to serve our
+                        customers. Whether it's by offering new types of meat, introducing
+                        new cooking techniques, or using the latest technology to improve
+                        our operations, we're always striving to be at the forefront of the
+                        meat industry.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="my-20 bg-gray-100 py-10"> 
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-red-600 mb-10">
+                Warsi Meat  <span class="text-black">Bazaar</span> Menu
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+
+                <!-- Chicken -->
+                <div
+                    class="p-1 bg-grayp-1 bg-gray-100 rounded-lg shadow-md  bg-red-600  text-white" data-aos="zoom-in-up"  data-aos-duration="500">
+                    <div class="flex justify-center items-center mb-3">
+                        <img src="./images/chiken.avif" alt="" class="rounded-lg  md:w-[350px] md:h-[250px]">
+                     </div>
+                    <p class="text-lg font-semibold">Chicken</p>
+                </div>
+
+                <!-- Fish -->
+                <div
+                    class="p-1 bg-grayp-1 bg-gray-100 rounded-lg shadow-md  bg-red-600  text-white" data-aos="zoom-in-up"  data-aos-duration="500">
+                    <div class="flex justify-center items-center mb-3">
+                        <img src="./images/fish.avif" alt="" class="rounded-lg  md:w-[350px] md:h-[250px]">
+                     </div>
+                    <p class="text-xl font-semibold">Fish</p>
+                </div>
+
+                <!-- Prawns -->
+                <div
+                    class="p-1 bg-grayp-1 bg-gray-100 rounded-lg shadow-md  bg-red-600  text-white" data-aos="zoom-in-up"  data-aos-duration="500">
+                    <div class="flex justify-center items-center mb-3">
+                        <img src="./images/prawns.avif" alt="" class="rounded-lg  md:w-[350px] md:h-[250px]">
+                     </div>
+                    <p class="text-xl font-semibold">Prawns</p>
+                </div>
+
+                <!-- Mutton -->
+                <div
+                    class="p-1 bg-grayp-1 bg-gray-100 rounded-lg shadow-md  bg-red-600  text-white" data-aos="zoom-in-up"  data-aos-duration="500">
+                    <div class="flex justify-center items-center mb-3">
+                        <img src="./images/mutton.avif" alt="" class="rounded-lg  md:w-[350px] md:h-[250px]">
+                     </div>
+                    <p class="text-xl font-semibold">Mutton</p>
+                </div>
+
+                <!-- Quail -->
+                <div
+                    class="p-1 bg-grayp-1 bg-gray-100 rounded-lg shadow-md  bg-red-600  text-white" data-aos="zoom-in-up"  data-aos-duration="500">
+                    <div class="flex justify-center items-center mb-3">
+                        <img src="./images/quail.jpg" alt="" class="rounded-lg  md:w-[350px] md:h-[250px]">
+                     </div>
+                    <p class="text-xl font-semibold">Quail</p>
+                </div>
+
+                <!-- Turkey -->
+                <div class="p-1 bg-grayp-1 bg-gray-100 rounded-lg shadow-md  bg-red-600  text-white" data-aos="zoom-in-up"  data-aos-duration="500">
+                        <div class="flex justify-center items-center mb-3">
+                            <img src="./images/turkey.webp" alt="" class="rounded-lg  md:w-[350px] md:h-[250px]">
+                         </div>
+                    <p class="text-xl font-semibold">Turkey</p>
+                </div>
+
+                <!-- Khadaknath -->
+                <div class="p-1 bg-gray-100 rounded-lg shadow-md  bg-red-600  text-white " data-aos="zoom-in-up"  data-aos-duration="500">
+                    <div class="flex justify-center items-center mb-3">
+                            <img src="./images/kadaknath.webp" alt="" class="rounded-lg  md:w-[350px] md:h-[250px]">
+                         </div>
+                    <p class="text-xl font-semibold">Khadaknath</p>
+                </div>
+
+                <!-- Seafood -->
+                <div
+                    class="p-1 bg-gray-100 rounded-lg shadow-md  bg-red-600  text-white" data-aos="zoom-in-up"  data-aos-duration="500">
+                    <div class="flex justify-center items-center mb-3">
+                       <img src="./images/seafood.jpg" alt="" class="rounded-lg md:w-[350px] md:h-[250px]">
+                    </div>
+                    <p class="text-xl font-semibold">Seafood</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Franchise Section -->
+   <section id="franchise" class="bg-gradient-to-br from-red-50 to-white py-20">
+    <div class="container mx-auto px-6 text-center">
+        <h2 class="md:text-4xl text-3xl font-extrabold text-red-700 mb-12 drop-shadow-md">Why Choose <span class="text-black"> Warsi Meat Bazaar</span>?</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- Card 1 -->
+            <div class="p-8 bg-white rounded-3xl shadow-lg hover:shadow-2xl border-t-4 border-red-500" data-aos="zoom-in-up"  data-aos-duration="500">
+                <div class="flex justify-center items-center mb-6">
+                    <div class="p-4 bg-red-100 rounded-full shadow-inner">
+                        <i class="fas fa-chart-line text-3xl text-red-600"></i>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-semibold text-gray-800 mb-4">Proven Business Model</h3>
+                <p class="text-gray-600 text-sm text-justify leading-relaxed">
+                    We've spent years developing and refining our business model, so you can be confident that you're investing in a franchise with a proven track record of success. 
+                    With strong brand recognition and a reputation for quality and service, Warsi Meat Bazaar is a name customers know and trust.
+                </p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="p-8 bg-white rounded-3xl shadow-lg hover:shadow-2xl border-t-4 border-red-500" data-aos="zoom-in-up"  data-aos-duration="1000">
+                <div class="flex justify-center items-center mb-6">
+                    <div class="p-4 bg-red-100 rounded-full shadow-inner">
+                        <i class="fas fa-graduation-cap text-3xl text-red-600"></i>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-semibold text-gray-800 mb-4">Comprehensive Training & Support</h3>
+                <p class="text-gray-600 text-sm text-justify leading-relaxed">
+                    We offer full training and continuous support for all our franchisees — from initial setup and operations to marketing and daily business challenges. You're never alone in this journey.
+                </p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="p-8 bg-white rounded-3xl shadow-lg hover:shadow-2xl border-t-4 border-red-500" data-aos="zoom-in-up"  data-aos-duration="1500">
+                <div class="flex justify-center items-center mb-6">
+                    <div class="p-4 bg-red-100 rounded-full shadow-inner">
+                        <i class="fas fa-medal text-3xl text-red-600"></i>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-semibold text-gray-800 mb-4">Access to High-Quality Products</h3>
+                <p class="text-gray-600 text-sm text-justify leading-relaxed">
+                    As a franchisee, you'll gain access to premium meat products directly from our trusted network of farms. You earn a 5% lifetime commission margin on all your sales — a partnership designed to last.
+                </p>
+            </div>
+
+        </div>
+    </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="bg-[url('./images/banner2.jpg')] my-10 relative bg-cover bg-fixed  flex justify-center items-center" data-aos="zoom-in-up" data-aos-duration="1000">
+        <!-- Background Overlay -->
+        <div class="overlay absolute inset-0 bg-black opacity-90"></div>
+        <!-- Content Container -->
+        <div class="relative z-10 container mx-auto px-4 py-16">
+            <div class="max-w-4xl mx-auto text-center">
+                <!-- Main Heading -->
+                <h2 class="text-4xl font-extrabold text-red-200 mb-6 text-center">
+                    About Warsi Meat Bazaar 
+                </h2>
+                <p class="text-white leading-relaxed mb-4 text-sm">
+                    Warsi Meat Bazaar is a premium meat shop franchise that offers high-quality, locally-sourced
+                    meats and exceptional customer service. Our mission is to provide our customers with the best
+                    possible meat shopping experience, whether in-store or online.
+                </p>
+                <p class="text-white leading-relaxed mb-4 text-sm">
+                    At <strong>Warsi Meat Bazaar</strong>, At Warsi Meat Bazaar, we believe that our success is due
+                    to our
+                    commitment to <span class="text-red-600 font-semibold">quality, service, and innovation</span>.
+                    We work closely
+                    with farmer to ensure that our meats are always fresh, flavorful,
+                    and of the highest quality.
+                </p>
+                <p class="text-white leading-relaxed mb-4 text-sm">
+                    Our offerings include a wide range of meat products, from traditional cuts of chicken, fish, and
+                    lamb to seafood and unique items like <span class="font-semibold">turkey, quail,
+                        kadaknath</span>, and even exotic meats.
+                </p>
+                <p class="text-white leading-relaxed mb-4 text-sm">
+                    As a <strong>Warsi Meat Bazaar franchisee</strong>, you gain access to our proven business model
+                    and extensive support network. From launch to growth, we provide the tools, training, and
+                    guidance to help you succeed. Our experienced team collaborates with you to build a business
+                    plan tailored to your goals, ensuring a competitive edge in your local market.
+                </p>
+                <p class="text-white leading-relaxed mb-4 text-sm">
+                    With our <span class="text-red-600 font-semibold">strong brand reputation</span> and loyal
+                    customer base, you'll thrive in delivering quality and satisfaction to your community.
+                    <div class="border-b-2 border-green-600 w-1/2 mx-auto mt-4"></div>
+                </p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Franchise Opportunity Section -->
+    <section class="py-20 bg-gradient-to-br from-red-50 to-white">
+    <div class="container mx-auto md:px-6 px-2">
+        <h2 class="md:text-4xl text-3xl font-extrabold text-center text-red-700 mb-14 drop-shadow-sm">
+            Why Choose <span class="text-black"> Warsi Meat Bazaar</span> Franchise?
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+            
+            <!-- Franchise Benefits -->
+            <div class="bg-white rounded-3xl p-10 shadow-lg hover:shadow-2xl transition duration-300 border-l-4 border-red-500" data-aos="zoom-in-up"  data-aos-duration="500">
+                <div class="flex items-center mb-6">
+                    <div class="p-4 bg-red-100 text-red-600 rounded-full shadow-inner mr-4">
+                        <i class="fas fa-check-circle text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-800">Franchise Benefits</h3>
+                </div>
+                <ul class="list-inside space-y-4 text-gray-700 text-sm leading-relaxed">
+                    <li><i class="fas fa-angle-right text-red-500 mr-2"></i> 5% Commission Margin on Sales for a Lifetime</li>
+                    <li><i class="fas fa-angle-right text-red-500 mr-2"></i> Impressive Margin: 55-60% on Sales</li>
+                    <li><i class="fas fa-angle-right text-red-500 mr-2"></i> Low Set-Up Cost: ₹1.5 Lakh - ₹2 Lakh</li>
+                    <li><i class="fas fa-angle-right text-red-500 mr-2"></i> Payback Period: 1 Year</li>
+                    <li><i class="fas fa-angle-right text-red-500 mr-2"></i> Comprehensive Training and Ongoing Support</li>
+                    <li><i class="fas fa-angle-right text-red-500 mr-2"></i> Marketing Support: Digital & Offline</li>
+                    <li><i class="fas fa-angle-right text-red-500 mr-2"></i> Exclusive Access to Unique Menu with Local & International Meat Varieties</li>
+                    <li><i class="fas fa-angle-right text-red-500 mr-2"></i> Delivery Channel Tie-Ups (Swiggy, Zomato, Chatbho, etc.)</li>
+                </ul>
+            </div>
+
+            <!-- Franchise Requirements -->
+            <div class="bg-white rounded-3xl p-10 shadow-lg hover:shadow-2xl transition duration-300 border-l-4 border-red-500" data-aos="zoom-in-up"  data-aos-duration="1000">
+                <div class="flex items-center mb-6">
+                    <div class="p-4 bg-red-100 text-red-600 rounded-full shadow-inner mr-4">
+                        <i class="fas fa-clipboard-list text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-800">Franchise Requirements</h3>
+                </div>
+                <ul class="list-inside space-y-4 text-gray-700 text-sm leading-relaxed">
+                    <li><i class="fas fa-angle-right text-red-500 mr-2"></i> Franchise Fee: ₹7 Lakh (Non-Refundable)</li>
+                    <li><i class="fas fa-angle-right text-red-500 mr-2"></i> Minimum Operational Space: 150-200 sq. ft.</li>
+                    <li><i class="fas fa-angle-right text-red-500 mr-2"></i> Only Warsi Meat Bazaar Products Allowed (No Outside Stock)</li>
+                    <li><i class="fas fa-angle-right text-red-500 mr-2"></i> License to Use Brand Logos & Marketing Material</li>
+                    <li><i class="fas fa-angle-right text-red-500 mr-2"></i> Terms & Conditions Apply</li>
+                    <li><i class="fas fa-angle-right text-red-500 mr-2"></i> Continuous Product Development</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    </section>
+
+   <!-- Call to Action Section -->
+    <section id="contact" class="py-16 bg-gradient-to-r from-red-700 to-red-500 text-white" data-aos="zoom-in-up" data-aos-duration="1000">
+        <div class="container mx-auto md:px-6 px-3 text-center">
+            <h2 class="text-3xl md:text-5xl font-extrabold mb-6 drop-shadow-lg">
+                Join the <span class="text-black">Warsi Meat Bazaar</span> Franchise
+            </h2>
+            
+            <div class="md:w-[65%] mx-auto bg-white/10 backdrop-blur-sm rounded-xl p-6 mb-8 shadow-xl">
+                <p class="text-sm md:text-base tracking-wide text-yellow-300 font-semibold">
+                    For franchise inquiries or more information, reach out to us directly
+                </p>
+                
+                <div class="flex flex-col md:flex-row flex-wrap justify-center items-center gap-6 mt-6">
+                    <!-- First Gmail -->
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-envelope text-2xl text-yellow-300"></i>
+                        <a href="mailto:warsimeatbazaar@gmail.com" class="text-white hover:text-yellow-200 transition-colors font-medium text-sm md:text-base">warsimeatbazaar@gmail.com</a>
+                    </div>
+                    
+                    <div class="hidden md:block w-px h-8 bg-white/30"></div>
+                    
+                    <!-- Second Gmail -->
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-envelope-open text-2xl text-yellow-300"></i>
+                        <a href="mailto:www.warsimeatbazaar@gmail.com" class="text-white hover:text-yellow-200 transition-colors font-medium text-sm md:text-base">www.warsimeatbazaar@gmail.com</a>
+                    </div>
+                    
+                    <div class="hidden md:block w-px h-8 bg-white/30"></div>
+                    
+                    <!-- Phone Number -->
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-phone-alt text-2xl text-yellow-300"></i>
+                        <a href="tel:+918400222227" class="text-white hover:text-yellow-200 transition-colors font-medium text-sm md:text-base">+91 8400 222 227</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-center">
+                <a href="#"
+                    class="inline-flex items-center justify-center gap-3 px-6 py-3 bg-white text-red-600 font-semibold text-lg rounded-full shadow-xl hover:bg-gray-100 transition duration-300">
+                    <i class="fas fa-handshake text-xl"></i>
+                    <span>Become a Partner</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white md:p-10 p-5 ">
+    <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Brand Info -->
+            <div class="flex flex-col"> 
+                 <!-- Logo -->
+                <div class="flex items-center">
+                    <img src="./images/warsi meat logo.png" class="h-24 ml-4" alt="">
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="flex flex-col gap-2 mt-4">
+                    <a href="mailto:warsimeatbazaar@gmail.com" class="flex items-center gap-3 text-gray-300 hover:text-red-500 transition">
+                        <i class="fas fa-envelope"></i>
+                        <span class="md:text-base text-sm">warsimeatbazaar@gmail.com</span>
+                    </a>
+                    <a href="tel:+918400222227" class="flex items-center gap-3 text-gray-300 hover:text-red-500 transition">
+                        <i class="fas fa-phone-alt"></i>
+                        <span class="md:text-base text-sm">+91 8400 222 227</span>
+                    </a>
+                    <div class="flex items-center gap-3 text-gray-300">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span class="md:text-base text-sm">Warsi Road Vijay Khand 2 Gomti Nagar Near <br class="md:block hidden"> Body Care Lucknow, Uttar Pradesh, 226010</span>
+                    </div>
+                </div>
+                
+                <!-- Social Media Links -->
+                <div class="flex gap-5 mt-5">
+                    <a href="https://www.facebook.com/share/16WZR3oNfi/" target="_blank" class="text-gray-300 hover:text-red-500 transition duration-300">
+                        <i class="fab fa-facebook-f text-xl"></i>
+                    </a>
+                    <a href="https://www.instagram.com/warsimeatbazaar?igsh=OTUzenBvODZnazJs" target="_blank" class="text-gray-300 hover:text-red-500 transition duration-300">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="https://youtube.com/@warsimeat_bazaar?si=D3tIbCrXToTfu7be" target="_blank" class="text-gray-300 hover:text-red-500 transition duration-300">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Quick Links -->
+            <div class="flex flex-col">
+                <h4 class="text-xl font-bold text-red-500 mb-4">Quick Links</h4>
+                <ul class="flex flex-col gap-2">
+                    <li><a href="#home" class="text-gray-300 hover:text-red-500 transition duration-300">Home</a></li>
+                    <li><a href="#about" class="text-gray-300 hover:text-red-500 transition duration-300">About Us</a></li>
+                    <li><a href="#menu" class="text-gray-300 hover:text-red-500 transition duration-300">Our Products</a></li>
+                    <li><a href="#franchise" class="text-gray-300 hover:text-red-500 transition duration-300">Franchise Information</a></li>
+                    <li><a href="#contact" class="text-gray-300 hover:text-red-500 transition duration-300">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <!-- Map -->
+            <div class="flex flex-col">
+                <h4 class="text-xl font-bold text-red-500 mb-4">Find Us</h4>
+                <div class="w-full h-64 rounded-lg overflow-hidden">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3559.3809809063455!2d80.98935697543767!3d26.859634276678783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjbCsDUxJzM0LjciTiA4MMKwNTknMzEuMCJF!5e0!3m2!1sen!2sin!4v1747203583943!5m2!1sen!2sin" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                <p class="text-gray-400 text-sm mt-2">26°51'34.7"N 80°59'31.0"E</p>
+            </div>
+        </div>
+        
+        <!-- Bottom Line -->
+        <div class="mt-8 border-t border-gray-700 pt-6 text-center text-sm text-gray-400">
+            &copy; 2024 <span class="text-white">Warsi Meat Bazaar</span>. All rights reserved.
+        </div>
+    </div>
+    </footer>
+
+    <!-- JavaScript for mobile menu toggle -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Navbar scroll behavior
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white', 'shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    </script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>
